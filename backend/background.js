@@ -1,9 +1,7 @@
-// Background service worker for Chrome extension
 let currentTab = null;
 let startTime = null;
 let syncInterval = null;
 
-// Website categories for productivity classification
 const PRODUCTIVE_SITES = [
   'github.com', 'stackoverflow.com', 'developer.mozilla.org', 'w3schools.com',
   'codepen.io', 'jsfiddle.net', 'repl.it', 'codesandbox.io', 'leetcode.com',
@@ -17,13 +15,11 @@ const UNPRODUCTIVE_SITES = [
   'pinterest.com', 'snapchat.com', 'linkedin.com', 'whatsapp.com'
 ];
 
-// Initialize extension
 chrome.runtime.onInstalled.addListener(() => {
   initializeStorage();
   startSyncInterval();
 });
 
-// Initialize storage with default values
 async function initializeStorage() {
   const result = await chrome.storage.local.get(['timeData', 'settings']);
   

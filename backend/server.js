@@ -1,4 +1,3 @@
-// Backend server for Productivity Tracker
 const express = require('express');
 const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
@@ -7,15 +6,13 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// Database setup
 const db = new sqlite3.Database('productivity.db');
 
-// Initialize database tables
 db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS time_entries (
         id INTEGER PRIMARY KEY AUTOINCREMENT,

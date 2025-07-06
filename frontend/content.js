@@ -1,9 +1,7 @@
-// Content script for activity tracking
 let isActive = true;
 let lastActivity = Date.now();
 let inactivityTimer = null;
 
-// Track user activity
 function trackActivity() {
   isActive = true;
   lastActivity = Date.now();
@@ -30,7 +28,6 @@ document.addEventListener('keydown', trackActivity);
 document.addEventListener('scroll', trackActivity);
 document.addEventListener('click', trackActivity);
 
-// Send page view data
 chrome.runtime.sendMessage({
   action: 'pageView',
   url: window.location.href,

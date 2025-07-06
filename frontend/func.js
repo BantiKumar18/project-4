@@ -86,13 +86,11 @@ function calculateStats(data) {
 }
 
 function updateUI(stats, data) {
-    // Update time displays
     document.getElementById('totalTime').textContent = formatTime(stats.totalTime);
     document.getElementById('productiveTime').textContent = formatTime(stats.productiveTime);
     document.getElementById('unproductiveTime').textContent = formatTime(stats.unproductiveTime);
     document.getElementById('neutralTime').textContent = formatTime(stats.neutralTime);
     
-    // Update productivity score
     const scoreElement = document.getElementById('productivityScore');
     scoreElement.textContent = `${stats.productivityScore}%`;
     
